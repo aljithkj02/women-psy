@@ -82,6 +82,7 @@ const LandingPage: React.FC = () => {
                                 <video
                                     className="w-full h-full object-cover"
                                     controls
+                                    // @ts-ignore
                                     ref={(el) => (mediaRefs.current[index] = el)}
                                     onPlay={() => handleMediaPlay(index)}
                                 >
@@ -107,6 +108,7 @@ const LandingPage: React.FC = () => {
                                     <audio
                                         controls
                                         className="w-full"
+// @ts-ignore
                                         ref={(el) => (mediaRefs.current[globalIndex] = el)}
                                         onPlay={() => handleMediaPlay(globalIndex)}
                                     >
