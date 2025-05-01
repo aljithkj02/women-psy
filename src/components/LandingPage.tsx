@@ -98,7 +98,9 @@ const LandingPage: React.FC = () => {
             {/* Audio Testimonials */}
             <section className="py-20 px-4">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-semibold mb-10">Real Stories from Real People</h2>
+                    <h2 className="text-3xl font-semibold mb-10">
+                        നമ്മുടെ കോഴ്സ് എടുത്ത പുരുഷന്മാർ പറയുന്നു:
+                    </h2>
                     <div className="grid md:grid-cols-2 gap-8">
                         {testimonials.map((item, index) => {
                             const globalIndex = index + videos.length; // keep unique index across video/audio
@@ -108,7 +110,7 @@ const LandingPage: React.FC = () => {
                                     <audio
                                         controls
                                         className="w-full"
-// @ts-ignore
+                                        // @ts-ignore
                                         ref={(el) => (mediaRefs.current[globalIndex] = el)}
                                         onPlay={() => handleMediaPlay(globalIndex)}
                                     >
