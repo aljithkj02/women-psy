@@ -49,8 +49,7 @@ const LandingPage: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="text-4xl md:text-[38px] font-bold leading-tight max-w-3xl"
                 >
-                    Women Psychology മനസ്സിലാക്കൂ<br />
-                    നിങ്ങളുടെ ബന്ധങ്ങൾ മെച്ചപ്പെടുത്തൂ
+                    സ്ത്രീകളുടെ മനസ്റ്റ് ഹാക്ക് ചെയ്യാൻ ഈ 1 കോഴ്സ് മതി!<br />
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
@@ -58,7 +57,9 @@ const LandingPage: React.FC = () => {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="mt-6 text-lg md:text-xl max-w-xl text-gray-600"
                 >
-                    പുരുഷന്മാർക്ക് സ്ത്രീകളുടെ മനസ്സിന്റെ രഹസ്യങ്ങൾ തുറന്നു കാണിക്കാൻ സഹായിക്കുന്ന ഒരു ആഴത്തിലുള്ള പ്രായോഗിക കോഴ്സ്
+                    {/* ഓരോ ആണുങ്ങളും  ഏറ്റവും കൂടുതൽ Enter ആയി  കൊണ്ടിരിക്കുന്ന കേരളത്തിലെ number 1 കോഴ്സ് */}
+                    {/* കേരളത്തിലെ പുരുഷന്മാർ ഏറ്റവുമധികം ആകർഷിക്കപ്പെടുന്ന #1 Course */}
+                    കേരളത്തിൽ ഏറ്റവും കൂടുതൽ ആണുങ്ങൾ ENTER ആയിക്കൊണ്ടിരിക്കുന്ന #1 കോഴ്സ്!
                 </motion.p>
                 <motion.a
                     href="https://wa.me/your-number"
@@ -99,7 +100,7 @@ const LandingPage: React.FC = () => {
             <section className="py-20 px-4">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-semibold mb-10">
-                        നമ്മുടെ കോഴ്സ് എടുത്ത പുരുഷന്മാർ പറയുന്നു:
+                        സ്ത്രീകളെ മനസ്സിലാക്കാൻ ആണുങ്ങൾ എന്തുകൊണ്ട് ഈ കോഴ്സിൽ JOIN ചെയ്യുന്നു?
                     </h2>
                     <div className="grid md:grid-cols-2 gap-8">
                         {testimonials.map((item, index) => {
