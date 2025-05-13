@@ -49,7 +49,7 @@ const LandingPage: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="text-4xl md:text-[38px] font-bold leading-tight max-w-3xl"
                 >
-                    സ്ത്രീകളുടെ മനസ്റ്റ് ഹാക്ക് ചെയ്യാൻ ഈ 1 കോഴ്സ് മതി!<br />
+                    നീ മനസ്സിലാക്കണമെന്ന് അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. അതാണ്‌ ഈ കോഴ്സ്<br />
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
