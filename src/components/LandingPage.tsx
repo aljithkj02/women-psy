@@ -5,11 +5,11 @@ import { motion } from 'framer-motion';
 const videos = [
     {
         title: "Watch This First",
-        url: "https://res.cloudinary.com/dquq0mrkt/video/upload/v1746607328/psy_n1pirk.mp4",
+        url: "https://res.cloudinary.com/dquq0mrkt/video/upload/v1747219673/lv_0_20250513215710_ys3hp2.mp4",
     },
     {
         title: "Course Sneak Peek",
-        url: "https://res.cloudinary.com/dquq0mrkt/video/upload/v1746106128/wp_qga1nd.mp4",
+        url: "https://res.cloudinary.com/dquq0mrkt/video/upload/v1746607328/psy_n1pirk.mp4",
     },
 ];
 
