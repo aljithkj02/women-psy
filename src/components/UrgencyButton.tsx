@@ -1,0 +1,311 @@
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from 'framer-motion';
+
+export const UrgencyButton = () => {
+    const [seatsLeft, setSeatsLeft] = useState(9);
+    const [isBlinking, setIsBlinking] = useState(false);
+    const [showPulse, setShowPulse] = useState(false);
+    const [justDecreased, setJustDecreased] = useState(false);
+
+    useEffect(() => {
+        // Check if we have stored data in localStorage
+        const storedData = localStorage.getItem('courseSeatsData');
+
+        if (storedData) {
+            const { seats, lastUpdate } = JSON.parse(storedData);
+            const now = Date.now();
+            const timeDiff = now - lastUpdate;
+
+            // Calculate how many hours have passed (2-3 hours per seat decrease)
+            const hoursPerDecrease = 2.5; // 2.5 hours average
+            const millisecondsPerDecrease = hoursPerDecrease * 60 * 60 * 1000;
+            const decreaseCount = Math.floor(timeDiff / millisecondsPerDecrease);
+
+            let newSeats = seats - decreaseCount;
+
+            // If seats go below 0, reset cycle
+            if (newSeats <= 0) {
+                newSeats = 9 - (Math.abs(newSeats) % 9);
+                if (newSeats === 0) newSeats = 9;
+            }
+
+            setSeatsLeft(newSeats);
+
+            // Update localStorage with current state
+            localStorage.setItem('courseSeatsData', JSON.stringify({
+                seats: newSeats,
+                lastUpdate: now
+            }));
+        } else {
+            // First time visitor - initialize localStorage
+            localStorage.setItem('courseSeatsData', JSON.stringify({
+                seats: 9,
+                lastUpdate: Date.now()
+            }));
+        }
+
+        // Set up interval to decrease seats every 2-3 hours
+        const interval = setInterval(() => {
+            // @ts-ignore
+            setSeatsLeft(prevSeats => {
+                const newSeats = prevSeats <= 1 ? 9 : prevSeats - 1;
+
+                // Update localStorage
+                localStorage.setItem('courseSeatsData', JSON.stringify({
+                    seats: newSeats,
+                    lastUpdate: Date.now()
+                }));
+
+                // Trigger animations when seats decrease
+                setIsBlinking(true);
+                setJustDecreased(true);
+                setTimeout(() => {
+                    setIsBlinking(false);
+                    setJustDecreased(false);
+                }, 3000);
+
+                return newSeats;
+            });
+        }, 2.5 * 60 * 60 * 1000); // 2.5 hours in milliseconds
+
+        // Pulse effect every 10 seconds for urgency
+        const pulseInterval = setInterval(() => {
+            if (seatsLeft <= 5) {
+                setShowPulse(true);
+                setTimeout(() => setShowPulse(false), 2000);
+            }
+        }, 10000);
+
+        return () => {
+            clearInterval(interval);
+            clearInterval(pulseInterval);
+        };
+    }, [seatsLeft]);
+
+    const getUrgencyColor = () => {
+        if (seatsLeft <= 2) return 'from-red-600 to-red-700';
+        if (seatsLeft <= 4) return 'from-orange-500 to-red-500';
+        if (seatsLeft <= 6) return 'from-yellow-500 to-orange-500';
+        return 'from-green-500 to-green-600';
+    };
+
+    const getUrgencyText = () => {
+        if (seatsLeft <= 2) return '🚨 FINAL SEATS!';
+        if (seatsLeft <= 4) return '🔥 ALMOST GONE!';
+        return `🔥 Only ${seatsLeft} seats left!`;
+    };
+
+    return (
+        <div className='flex flex-col items-center mt-4 space-y-3'>
+            {/* Urgency Indicator with Enhanced Animations */}
+            <motion.div
+                className={`px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r ${getUrgencyColor()} text-white relative overflow-hidden`}
+                animate={isBlinking ? {
+                    scale: [1, 1.2, 1],
+                    opacity: [1, 0.8, 1],
+                    rotateX: [0, 360, 0]
+                } : showPulse ? {
+                    scale: [1, 1.1, 1],
+                    boxShadow: [
+                        '0 0 0 0 rgba(239, 68, 68, 0.7)',
+                        '0 0 0 10px rgba(239, 68, 68, 0)',
+                        '0 0 0 0 rgba(239, 68, 68, 0)'
+                    ]
+                } : {}}
+                transition={{ 
+                    duration: isBlinking ? 0.6 : 0.8, 
+                    repeat: isBlinking ? 4 : showPulse ? 2 : 0,
+                    ease: "easeInOut"
+                }}
+                whileHover={{ scale: 1.05 }}
+            >
+                <motion.div
+                    animate={seatsLeft <= 3 ? {
+                        x: [-2, 2, -2, 0],
+                    } : {}}
+                    transition={{ 
+                        duration: 0.5, 
+                        repeat: seatsLeft <= 3 ? Infinity : 0, 
+                        repeatDelay: 3 
+                    }}
+                >
+                    {getUrgencyText()}
+                </motion.div>
+                
+                {/* Glowing effect for critical urgency */}
+                {seatsLeft <= 3 && (
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-red-400 to-red-600 rounded-full opacity-50"
+                        animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0.5, 0.8, 0.5]
+                        }}
+                        transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    />
+                )}
+            </motion.div>
+
+            {/* Seat Decrease Notification */}
+            <AnimatePresence>
+                {justDecreased && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20, scale: 0.8 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.8 }}
+                        className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold"
+                    >
+                        🚨 Someone just booked!
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Enhanced Join Now Button */}
+            <motion.div
+                className="relative"
+                animate={seatsLeft <= 3 ? {
+                    y: [0, -3, 0],
+                } : {}}
+                transition={{
+                    duration: 2,
+                    repeat: seatsLeft <= 3 ? Infinity : 0,
+                    ease: "easeInOut"
+                }}
+            >
+                {/* Glowing ring effect */}
+                {seatsLeft <= 5 && (
+                    <motion.div
+                        className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-30"
+                        // animate={{
+                        //     scale: [1, 1.1, 1],
+                        //     opacity: [0.3, 0.6, 0.3]
+                        // }}
+                        // transition={{
+                        //     duration: 2,
+                        //     repeat: Infinity,
+                        //     ease: "easeInOut"
+                        // }}
+                    />
+                )}
+
+                <motion.a
+                    href="https://wa.me/your-number"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ 
+                        scale: 1.05,
+                        rotate: seatsLeft <= 2 ? [0, -1, 1, 0] : 0,
+                        transition: { duration: 0.3 }
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    className="relative inline-block px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 font-bold rounded-xl shadow-lg hover:shadow-2xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 transform overflow-hidden"
+                    animate={seatsLeft <= 2 ? {
+                        boxShadow: [
+                            '0 10px 25px rgba(251, 191, 36, 0.5)',
+                            '0 15px 35px rgba(251, 191, 36, 0.8)',
+                            '0 10px 25px rgba(251, 191, 36, 0.5)'
+                        ]
+                    } : {}}
+                    transition={{
+                        duration: 1.5,
+                        repeat: seatsLeft <= 2 ? Infinity : 0,
+                        ease: "easeInOut"
+                    }}
+                >
+                    {/* Shimmer effect */}
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+                        // animate={{
+                        //     x: ['-100%', '100%']
+                        // }}
+                        // transition={{
+                        //     duration: 2,
+                        //     repeat: Infinity,
+                        //     repeatDelay: 3,
+                        //     ease: "easeInOut"
+                        // }}
+                        style={{
+                            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)'
+                        }}
+                    />
+
+                    <div className="relative flex items-center justify-center space-x-2">
+                        <motion.span
+                            animate={seatsLeft <= 3 ? {
+                                scale: [1, 1.1, 1]
+                            } : {}}
+                            transition={{
+                                duration: 0.6,
+                                repeat: seatsLeft <= 3 ? Infinity : 0,
+                                repeatDelay: 2
+                            }}
+                        >
+                            Join Now
+                        </motion.span>
+                        
+                        {seatsLeft <= 3 && (
+                            <motion.span
+                                animate={{ 
+                                    rotate: [0, 15, -15, 0],
+                                    scale: [1, 1.2, 1]
+                                }}
+                                transition={{ 
+                                    duration: 0.8, 
+                                    repeat: Infinity, 
+                                    repeatDelay: 1.5 
+                                }}
+                                className="text-red-600 text-lg"
+                            >
+                                ⚡
+                            </motion.span>
+                        )}
+                    </div>
+                </motion.a>
+            </motion.div>
+
+            {/* Critical Urgency Messages */}
+            <AnimatePresence>
+                {seatsLeft <= 3 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="text-center space-y-2"
+                    >
+                        <motion.p
+                            animate={{
+                                color: ['#ef4444', '#dc2626', '#ef4444']
+                            }}
+                            transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            className="text-sm font-bold"
+                        >
+                            ⚠️ {seatsLeft <= 1 ? 'LAST SEAT!' : 'Almost sold out!'}
+                        </motion.p>
+                        
+                        {seatsLeft <= 2 && (
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: [0, 1, 0] }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                className="text-xs text-orange-400"
+                            >
+                                🕒 Don't miss out - secure your spot now!
+                            </motion.p>
+                        )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};

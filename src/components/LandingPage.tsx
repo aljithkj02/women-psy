@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Mind from '../assets/Mind.jpg'
+import { UrgencyButton } from './UrgencyButton';
 
 
 const videos = [
@@ -115,6 +116,19 @@ const LandingPage: React.FC = () => {
                                 Your browser does not support the video tag.
                             </video>
                         </div>
+
+                        {/* <div className='flex justify-center mt-4'>
+                            <motion.a
+                                href="https://wa.me/your-number"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                className="inline-block px-8 py-4 bg-yellow-400 text-slate-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:bg-yellow-300 transition"
+                            >
+                                Join Now
+                            </motion.a>
+                        </div> */}
+                        <UrgencyButton />
                     </div>
 
                     <div>
