@@ -58,12 +58,12 @@ const LandingPage: React.FC = () => {
             </section>
 
             {/* Hero Section */}
-            <section className="py-16 flex flex-col items-center justify-center px-4 text-center">
+            <section className="py-16 flex flex-col items-center justify-center px-6 text-center">
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl md:text-[38px] font-bold leading-tight max-w-3xl"
+                    className="text-3xl md:text-[38px] font-bold leading-tight max-w-3xl"
                 >
                     നീ മനസ്സിലാക്കണമെന്ന് അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. അതാണ്‌ ഈ കോഴ്സ്<br />
                 </motion.h1>
@@ -92,23 +92,51 @@ const LandingPage: React.FC = () => {
             {/* Video Section */}
             <section className="py-20 bg-gray-100 px-4">
                 <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
-                    {videos.map((video, index) => (
-                        <div key={index}>
-                            <h2 className="text-2xl font-semibold mb-4">{video.title}</h2>
-                            <div className="aspect-[9/16] bg-black rounded-xl overflow-hidden">
-                                <video
-                                    className="w-full h-full object-cover"
-                                    controls
-                                    // @ts-ignore
-                                    ref={(el) => (mediaRefs.current[index] = el)}
-                                    onPlay={() => handleMediaPlay(index)}
-                                >
-                                    <source src={video.url} type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
+
+                    <div>
+                        {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
+                        <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden">
+                            <video
+                                className="w-full h-full object-cover"
+                                controls
+                                // @ts-ignore
+                                ref={(el) => (mediaRefs.current[1] = el)}
+                                onPlay={() => handleMediaPlay(1)}
+                            >
+                                <source src={"https://res.cloudinary.com/dquq0mrkt/video/upload/v1747219673/lv_0_20250513215710_ys3hp2.mp4"} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
-                    ))}
+
+                        <div className='flex justify-center mt-4'>
+                            <motion.a
+                                href="https://wa.me/your-number"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                className="inline-block px-8 py-4 bg-yellow-400 text-slate-900 font-bold rounded-xl shadow-md hover:shadow-xl transition"
+                            >
+                                Join Now
+                            </motion.a>
+                        </div>
+                    </div>
+
+                    <div >
+                        {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
+                        <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden">
+                            <video
+                                className="w-full h-full object-cover"
+                                controls
+                                // @ts-ignore
+                                ref={(el) => (mediaRefs.current[2] = el)}
+                                onPlay={() => handleMediaPlay(2)}
+                            >
+                                <source src={"https://res.cloudinary.com/dquq0mrkt/video/upload/v1746607328/psy_n1pirk.mp4"} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
