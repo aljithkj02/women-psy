@@ -47,7 +47,11 @@ const LandingPage: React.FC = () => {
             <section className="py-10 px-4 text-center bg-gray-800">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
                     {/* ഈ കോഴ്സിൽ നിന്നെ വേണ്ടി കാത്തിരിക്കുന്നത് */}
-                    Woman Psychology
+                    {/* Woman Psychology */}
+
+                    നീ മനസ്സിലാക്കണമെന്ന് <br />
+                    <span className='text-yellow-400'>അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. </span>
+                    <br />അതാണ്‌ ഈ കോഴ്സ്<br />
                 </h2>
                 <div className="max-w-4xl mx-auto">
                     <img
@@ -60,14 +64,17 @@ const LandingPage: React.FC = () => {
 
             {/* Hero Section */}
             <section className="py-16 flex flex-col items-center justify-center px-6 text-center bg-gray-900">
-                <motion.h1
+                {/* <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     className="text-3xl md:text-[38px] font-bold leading-tight max-w-3xl text-white"
                 >
-                    നീ മനസ്സിലാക്കണമെന്ന് അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. അതാണ്‌ ഈ കോഴ്സ്<br />
-                </motion.h1>
+                    നീ മനസ്സിലാക്കണമെന്ന് <br />
+                    <span className='text-yellow-400'>അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. </span> 
+                    <br />അതാണ്‌ ഈ കോഴ്സ്<br />
+                </motion.h1> */}
+
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
