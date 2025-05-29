@@ -22,7 +22,7 @@ const testimonials = [
     },
     {
         quote: '"പറഞ്ഞു തന്ന methods, കാര്യങ്ങളൊക്കെ പക്കാ ആണ്. ഇതൊന്നും നമ്മൾ ചെയ്തില്ല, അതാണ് പ്രശ്നം പറ്റിയത്!"',
-        url: "https://res.cloudinary.com/dquq0mrkt/video/upload/v1746106542/a2_wns77x.ogg",
+        url: "https://res.cloudinary.com/dquq0mrkt/video/upload/v1748521067/a2_wns77x-_AudioTrimmer.com_ohmwte.ogg",
     },
     {
         quote: '"ഓരോരുത്തരും കേൾക്കേണ്ട കോഴ്സ് തന്നെ ആണ് ഇത്. കാരണം ഒരാളിൽ തന്നെ അടിഞ്ഞു കൂടി ഇരിക്കുന്നവർ പ്രത്യേകിച്ചു കേൾക്കണ്ട സംഭവം തന്നെ ആണ് ഇത്!"',

@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
+import { NAMES } from "../constants";
+
+function getRandomIndex(arrayLength: number) {
+    return Math.floor(Math.random() * arrayLength);
+}
 
 export const UrgencyButton = () => {
     const [isBlinking, setIsBlinking] = useState(false);
@@ -32,11 +37,7 @@ export const UrgencyButton = () => {
             {/* Urgency Indicator with Enhanced Animations */}
             <motion.div
                 className={`px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-red-600 to-red-700 text-white relative overflow-hidden`}
-                animate={isBlinking ? {
-                    scale: [1, 1.2, 1],
-                    opacity: [1, 0.8, 1],
-                    rotateX: [0, 360, 0]
-                } : showPulse ? {
+                animate={showPulse ? {
                     scale: [1, 1.1, 1],
                     boxShadow: [
                         '0 0 0 0 rgba(239, 68, 68, 0.7)',
@@ -52,14 +53,14 @@ export const UrgencyButton = () => {
                 whileHover={{ scale: 1.05 }}
             >
                 <motion.div
-                    animate={{
-                        x: [-2, 2, -2, 0],
-                    }}
-                    transition={{
-                        duration: 0.5,
-                        repeat: Infinity,
-                        repeatDelay: 3
-                    }}
+                // animate={{
+                //     x: [-2, 2, -2, 0],
+                // }}
+                // transition={{
+                //     duration: 0.5,
+                //     repeat: Infinity,
+                //     repeatDelay: 3
+                // }}
                 >
                     🚨 FINAL SEATS!
                 </motion.div>
@@ -88,7 +89,7 @@ export const UrgencyButton = () => {
                         exit={{ opacity: 0, y: 20, scale: 0.8 }}
                         className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold"
                     >
-                        🚨 Someone just booked!
+                        🚨 {NAMES[getRandomIndex(NAMES.length)]} just purchased!
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -106,9 +107,9 @@ export const UrgencyButton = () => {
                 }}
             >
                 {/* Glowing ring effect */}
-                <motion.div
-                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-30"
-                />
+                {/* <motion.div
+                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-400 to-green-500 opacity-30"
+                /> */}
 
                 <motion.a
                     href="https://wa.me/your-number"
@@ -120,14 +121,14 @@ export const UrgencyButton = () => {
                         transition: { duration: 0.3 }
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="relative inline-block px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 font-bold rounded-xl shadow-lg hover:shadow-2xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 transform overflow-hidden"
-                    animate={{
-                        boxShadow: [
-                            '0 10px 25px rgba(251, 191, 36, 0.5)',
-                            '0 15px 35px rgba(251, 191, 36, 0.8)',
-                            '0 10px 25px rgba(251, 191, 36, 0.5)'
-                        ]
-                    }}
+                    className="relative inline-block px-8 py-4 bg-gradient-to-r from-green-400 to-green-500 text-slate-900 font-bold rounded-xl shadow-lg hover:shadow-2xl hover:from-green-300 hover:to-green-400 transition-all duration-300 transform overflow-hidden"
+                    // animate={{
+                    //     boxShadow: [
+                    //         '0 10px 25px rgba(75, 251, 36, 0.5)',
+                    //         '0 15px 35px rgba(75, 251, 36, 0.8)',
+                    //         '0 10px 25px rgba(75, 251, 36, 0.5)'
+                    //     ]
+                    // }}
                     transition={{
                         duration: 1.5,
                         repeat: Infinity,
@@ -151,7 +152,7 @@ export const UrgencyButton = () => {
                         }}
                     />
 
-                    <div className="relative flex items-center justify-center space-x-2">
+                    <div className="relative flex items-center justify-center space-x-2 px-10">
                         <motion.span
                             animate={{
                                 scale: [1, 1.1, 1]
