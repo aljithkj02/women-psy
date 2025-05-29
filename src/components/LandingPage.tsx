@@ -50,7 +50,7 @@ const LandingPage: React.FC = () => {
                     {/* Woman Psychology */}
 
                     നീ മനസ്സിലാക്കണമെന്ന് <br />
-                    <span className='text-yellow-400'>അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. </span>
+                    <span className='text-red-500'>അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. </span>
                     <br />അതാണ്‌ ഈ കോഴ്സ്<br />
                 </h2>
                 <div className="max-w-4xl mx-auto">
