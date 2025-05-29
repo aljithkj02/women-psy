@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import Mind from '../assets/Mind.jpg'
 
 
 const videos = [
@@ -41,8 +42,23 @@ const LandingPage: React.FC = () => {
 
     return (
         <div className="bg-white text-slate-900 font-sans">
+
+            {/* Intro Image Section */}
+            <section className="py-10 px-4 text-center bg-gray-100">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                    ഈ കോഴ്സിൽ നിന്നെ വേണ്ടി കാത്തിരിക്കുന്നത്
+                </h2>
+                <div className="max-w-4xl mx-auto">
+                    <img
+                        src={Mind}
+                        alt="Course Intro"
+                        className="w-full rounded-xl shadow-md"
+                    />
+                </div>
+            </section>
+
             {/* Hero Section */}
-            <section className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+            <section className="py-16 flex flex-col items-center justify-center px-4 text-center">
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
