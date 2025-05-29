@@ -41,29 +41,30 @@ const LandingPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-white text-slate-900 font-sans">
+        <div className="bg-gray-900 text-gray-100 font-sans">
 
             {/* Intro Image Section */}
-            <section className="py-10 px-4 text-center bg-gray-100">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                    ഈ കോഴ്സിൽ നിന്നെ വേണ്ടി കാത്തിരിക്കുന്നത്
+            <section className="py-10 px-4 text-center bg-gray-800">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
+                    {/* ഈ കോഴ്സിൽ നിന്നെ വേണ്ടി കാത്തിരിക്കുന്നത് */}
+                    Woman Psychology
                 </h2>
                 <div className="max-w-4xl mx-auto">
                     <img
                         src={Mind}
                         alt="Course Intro"
-                        className="w-full rounded-xl shadow-md"
+                        className="w-full rounded-xl shadow-2xl border border-gray-700"
                     />
                 </div>
             </section>
 
             {/* Hero Section */}
-            <section className="py-16 flex flex-col items-center justify-center px-6 text-center">
+            <section className="py-16 flex flex-col items-center justify-center px-6 text-center bg-gray-900">
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-3xl md:text-[38px] font-bold leading-tight max-w-3xl"
+                    className="text-3xl md:text-[38px] font-bold leading-tight max-w-3xl text-white"
                 >
                     നീ മനസ്സിലാക്കണമെന്ന് അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. അതാണ്‌ ഈ കോഴ്സ്<br />
                 </motion.h1>
@@ -71,7 +72,7 @@ const LandingPage: React.FC = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.8 }}
-                    className="mt-6 text-lg md:text-xl max-w-xl text-gray-600"
+                    className="mt-6 text-lg md:text-xl max-w-xl text-gray-300"
                 >
                     {/* ഓരോ ആണുങ്ങളും  ഏറ്റവും കൂടുതൽ Enter ആയി  കൊണ്ടിരിക്കുന്ന കേരളത്തിലെ number 1 കോഴ്സ് */}
                     {/* കേരളത്തിലെ പുരുഷന്മാർ ഏറ്റവുമധികം ആകർഷിക്കപ്പെടുന്ന #1 Course */}
@@ -82,7 +83,7 @@ const LandingPage: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
-                    className="mt-8 px-6 py-3 bg-yellow-400 text-slate-900 font-semibold rounded-xl shadow-md hover:shadow-lg transition"
+                    className="mt-8 px-6 py-3 bg-yellow-400 text-slate-900 font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-yellow-300 transition"
                 >
                     Enroll Now
                 </motion.a>
@@ -90,12 +91,12 @@ const LandingPage: React.FC = () => {
 
 
             {/* Video Section */}
-            <section className="py-20 bg-gray-100 px-4">
+            <section className="py-20 bg-gray-800 px-4">
                 <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
 
                     <div>
                         {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
-                        <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden">
+                        <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-700">
                             <video
                                 className="w-full h-full object-cover"
                                 controls
@@ -114,7 +115,7 @@ const LandingPage: React.FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
-                                className="inline-block px-8 py-4 bg-yellow-400 text-slate-900 font-bold rounded-xl shadow-md hover:shadow-xl transition"
+                                className="inline-block px-8 py-4 bg-yellow-400 text-slate-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:bg-yellow-300 transition"
                             >
                                 Join Now
                             </motion.a>
@@ -123,7 +124,7 @@ const LandingPage: React.FC = () => {
 
                     <div >
                         {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
-                        <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden">
+                        <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-700">
                             <video
                                 className="w-full h-full object-cover"
                                 controls
@@ -141,20 +142,20 @@ const LandingPage: React.FC = () => {
             </section>
 
             {/* Audio Testimonials */}
-            <section className="py-20 px-4">
+            <section className="py-20 px-4 bg-gray-900">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-semibold mb-10">
+                    <h2 className="text-3xl font-semibold mb-10 text-white">
                         സ്ത്രീകളെ മനസ്സിലാക്കാൻ ആണുങ്ങൾ എന്തുകൊണ്ട് ഈ കോഴ്സിൽ JOIN ചെയ്യുന്നു?
                     </h2>
                     <div className="grid md:grid-cols-2 gap-8">
                         {testimonials.map((item, index) => {
                             const globalIndex = index + videos.length; // keep unique index across video/audio
                             return (
-                                <div key={index} className="p-6 bg-white rounded-xl shadow">
-                                    <p className="mb-4 text-gray-700 italic">{item.quote}</p>
+                                <div key={index} className="p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700">
+                                    <p className="mb-4 text-gray-300 italic">{item.quote}</p>
                                     <audio
                                         controls
-                                        className="w-full"
+                                        className="w-full [&::-webkit-media-controls-panel]:bg-gray-700"
                                         // @ts-ignore
                                         ref={(el) => (mediaRefs.current[globalIndex] = el)}
                                         onPlay={() => handleMediaPlay(globalIndex)}
@@ -167,10 +168,10 @@ const LandingPage: React.FC = () => {
                         })}
                     </div>
                 </div>
-            </section>u
+            </section>
 
             {/* Final CTA */}
-            <section className="py-20 bg-slate-900 text-white text-center px-4">
+            <section className="py-20 bg-slate-900 text-white text-center px-4 border-t border-gray-800">
                 <motion.h2
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -185,7 +186,7 @@ const LandingPage: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
-                    className="inline-block px-8 py-4 bg-yellow-400 text-slate-900 font-bold rounded-xl shadow-md hover:shadow-xl transition"
+                    className="inline-block px-8 py-4 bg-yellow-400 text-slate-900 font-bold rounded-xl shadow-lg hover:shadow-xl hover:bg-yellow-300 transition"
                 >
                     Enroll Now
                 </motion.a>
