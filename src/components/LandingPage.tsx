@@ -101,6 +101,22 @@ const LandingPage: React.FC = () => {
             <section className="py-20 bg-gray-800 px-4">
                 <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
 
+                    <div >
+                        {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
+                        <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+                            <video
+                                className="w-full h-full object-cover"
+                                controls
+                                // @ts-ignore
+                                ref={(el) => (mediaRefs.current[2] = el)}
+                                onPlay={() => handleMediaPlay(2)}
+                            >
+                                <source src={"https://res.cloudinary.com/dquq0mrkt/video/upload/v1746607328/psy_n1pirk.mp4"} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
                     <div>
                         {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
                         <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-700">
@@ -126,22 +142,6 @@ const LandingPage: React.FC = () => {
                             >
                                 Join Now
                             </motion.a>
-                        </div>
-                    </div>
-
-                    <div >
-                        {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
-                        <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-700">
-                            <video
-                                className="w-full h-full object-cover"
-                                controls
-                                // @ts-ignore
-                                ref={(el) => (mediaRefs.current[2] = el)}
-                                onPlay={() => handleMediaPlay(2)}
-                            >
-                                <source src={"https://res.cloudinary.com/dquq0mrkt/video/upload/v1746607328/psy_n1pirk.mp4"} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
                         </div>
                     </div>
 
