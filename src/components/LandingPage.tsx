@@ -52,7 +52,7 @@ const LandingPage: React.FC = () => {
 
                     നീ മനസ്സിലാക്കണമെന്ന് <br />
                     <span className='text-red-500'>അവൾ ഒരിക്കലും ആഗ്രഹിക്കാത്ത സത്യം. </span>
-                    <br />അതാണ്‌ ഈ കോഴ്സ്<br />
+                    <br />അതാണ് ഞങ്ങൾ പഠിപ്പിക്കുന്നത് <br />
                 </h2>
                 <div className="max-w-4xl mx-auto">
                     <img
