@@ -91,7 +91,7 @@ const LandingPage: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
-                    className="mt-8 px-6 py-3 bg-yellow-400 text-slate-900 font-semibold rounded-xl shadow-lg hover:shadow-xl hover:bg-yellow-300 transition"
+                    className="mt-8 px-6 py-3 bg-white font-bold text-slate-900 rounded-xl shadow-lg hover:shadow-xl hover:bg-gray-300 transition"
                 >
                     Enroll Now
                 </motion.a>
