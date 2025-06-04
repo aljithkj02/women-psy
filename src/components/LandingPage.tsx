@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Mind from '../assets/Mind.jpg'
 import { UrgencyButton } from './UrgencyButton';
+import Thumb1 from '../assets/thumb1.jpg'
+import Thumb2 from '../assets/thumb2.jpg'
 
 
 const videos = [
@@ -106,11 +108,12 @@ const LandingPage: React.FC = () => {
                         {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
                         <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-700">
                             <video
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-center"
                                 controls
                                 // @ts-ignore
                                 ref={(el) => (mediaRefs.current[2] = el)}
                                 onPlay={() => handleMediaPlay(2)}
+                                poster={Thumb1}
                             >
                                 <source src={"https://res.cloudinary.com/dquq0mrkt/video/upload/v1746607328/psy_n1pirk.mp4"} type="video/mp4" />
                                 Your browser does not support the video tag.
@@ -135,11 +138,12 @@ const LandingPage: React.FC = () => {
                         {/* <h2 className="text-2xl font-semibold mb-4">{video.title}</h2> */}
                         <div className="aspect-[9/14] bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-700">
                             <video
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-center"
                                 controls
                                 // @ts-ignore
                                 ref={(el) => (mediaRefs.current[1] = el)}
                                 onPlay={() => handleMediaPlay(1)}
+                                poster={Thumb2}
                             >
                                 <source src={"https://res.cloudinary.com/dquq0mrkt/video/upload/v1747219673/lv_0_20250513215710_ys3hp2.mp4"} type="video/mp4" />
                                 Your browser does not support the video tag.
