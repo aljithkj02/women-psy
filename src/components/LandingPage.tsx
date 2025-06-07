@@ -397,7 +397,7 @@ const PsychologyLanding = () => {
                         </div>
 
                         <UrgencyButton />
-                        
+                         
                         {/* <div className="mt-8 text-sm text-gray-400">
                             ✓ Lifetime Access &nbsp;&nbsp; ✓ WhatsApp Support &nbsp;&nbsp; ✓ 100% Satisfaction
                         </div> */}
