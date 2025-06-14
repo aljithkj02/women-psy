@@ -77,8 +77,8 @@ const UrgencyButton = () => {
                 </div>
             </div>
             <motion.a
-                href="https://wa.me/your-number"
-                target="_blank"
+                href="https://superprofile.bio/course/woman-psychology"
+                // target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
