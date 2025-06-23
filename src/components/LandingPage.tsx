@@ -5,6 +5,9 @@ import Mind from '../assets/Mind.jpg'
 import Thumb1 from '../assets/thumb1.jpg'
 import Thumb2 from '../assets/thumb2.jpg'
 
+import Athira from '../assets/athira.mov'
+import Nisa from '../assets/nisa.mp4'
+
 const testimonials = [
     {
         quote: '"എനിക്ക് കിട്ടേണ്ട answers എല്ലാം ഈ കോഴ്സിൽ നിന്നും കിട്ടീട്ടുണ്ട്. ഇപ്പോൾ ഞാൻ satisfied ആണ്!"',
@@ -229,7 +232,7 @@ const PsychologyLanding = () => {
                                     onPlay={() => handleMediaPlay(0)}
                                     poster={Thumb1}
                                 >
-                                    <source src="https://res.cloudinary.com/dquq0mrkt/video/upload/v1746607328/psy_n1pirk.mp4" type="video/mp4" />
+                                    <source src={Nisa} type="video/mp4" />
                                 </video>
                             </div>
                             
@@ -249,7 +252,7 @@ const PsychologyLanding = () => {
                                     onPlay={() => handleMediaPlay(1)}
                                     poster={Thumb2}
                                 >
-                                    <source src="https://res.cloudinary.com/dquq0mrkt/video/upload/v1747219673/lv_0_20250513215710_ys3hp2.mp4" type="video/mp4" />
+                                    <source src={Athira} type="video/mp4" />
                                 </video>
                             </div>
                             
