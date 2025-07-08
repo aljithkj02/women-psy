@@ -217,7 +217,7 @@ const PsychologyLanding = () => {
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 gap-12">
+                    <div className="flex justify-center">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -233,26 +233,6 @@ const PsychologyLanding = () => {
                                     poster={Thumb1}
                                 >
                                     <source src={Nisa} type="video/mp4" />
-                                </video>
-                            </div>
-                            
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="aspect-[9/14] bg-black rounded-lg overflow-hidden shadow-xl">
-                                <video
-                                    className="w-full h-full object-contain"
-                                    controls
-                                    // @ts-ignore
-                                    ref={(el) => (mediaRefs.current[1] = el)}
-                                    onPlay={() => handleMediaPlay(1)}
-                                    poster={Thumb2}
-                                >
-                                    <source src={Athira} type="video/mp4" />
                                 </video>
                             </div>
                             
