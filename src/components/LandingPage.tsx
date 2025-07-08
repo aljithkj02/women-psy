@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 import Mind from '../assets/Mind.jpg'
 import Thumb1 from '../assets/thumb1.jpg'
-import Thumb2 from '../assets/thumb2.jpg'
+// import Thumb2 from '../assets/thumb2.jpg'
 
-import Athira from '../assets/athira.mov'
+// import Athira from '../assets/athira.mov'
 import Nisa from '../assets/nisa.mp4'
 
 const testimonials = [
